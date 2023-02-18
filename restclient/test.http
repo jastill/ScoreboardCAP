@@ -1,0 +1,24 @@
+@tenant = localhost:4004/scoreboard
+@name=JohnEBGone
+
+@highScore = http://{{tenant}}/HighScore?$orderby=score desc
+@weeklyHighScore = http://{{tenant}}/HighScore?$orderby=score desc&$filter=created gt 2023-02-12T00:00:00.000Z
+@ranking = http://{{tenant}}/Ranking?name={{name}}
+
+### 1. Get High Score Descending
+# @name getHighScore
+GET {{highScore}}
+Accept: application/json
+Content-Type: application/json
+
+### 2. Get Weekly High Score for this week
+# @name getWeeklyHighScore
+GET {{weeklyHighScore}}
+Accept: application/json
+Content-Type: application/json
+
+### 3. Get Ranking for given name
+# @name getRanking
+GET {{ranking}}
+Accept: application/json
+Content-Type: application/json
