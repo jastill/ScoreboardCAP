@@ -2,8 +2,8 @@
 @name=JohnEBGone
 
 @scores = http://{{tenant}}/HighScore
-@highScore = http://{{tenant}}/HighScore?$orderby=score desc&$top=10
-@weeklyHighScore = http://{{tenant}}/HighScore?$orderby=score desc&$filter=created gt 2023-02-12T00:00:00.000Z
+@highScore = http://{{tenant}}/HighScore?$orderby=score desc&$top=10&$skip=0
+@weeklyHighScore = http://{{tenant}}/HighScore?$orderby=score desc&$filter=created gt 2023-02-12T00:00:00.000Z&$top=10
 @ranking = http://{{tenant}}/Ranking?name={{name}}
 
 ### 1. Get High Score Descending
