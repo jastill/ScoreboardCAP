@@ -1,7 +1,8 @@
 @tenant = localhost:4004/scoreboard
 @name=JohnEBGone
 
-@highScore = http://{{tenant}}/HighScore?$orderby=score desc
+@scores = http://{{tenant}}/HighScore
+@highScore = http://{{tenant}}/HighScore?$orderby=score desc&$top=10
 @weeklyHighScore = http://{{tenant}}/HighScore?$orderby=score desc&$filter=created gt 2023-02-12T00:00:00.000Z
 @ranking = http://{{tenant}}/Ranking?name={{name}}
 
@@ -22,3 +23,14 @@ Content-Type: application/json
 GET {{ranking}}
 Accept: application/json
 Content-Type: application/json
+
+### 4. Post score
+# @name getRanking
+POST {{scores}}
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "Jake",
+    "score": 100
+}
